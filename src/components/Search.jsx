@@ -7,7 +7,7 @@ const Search = () => {
   const [results, setResults] = useState([]);
 
 
-  //Watch Changes on Term
+  //Watch Changes on state: Term
   useEffect(() => {
     const search = async () => {
       const res = await axios.get('https://en.wikipedia.org/w/api.php', {
@@ -22,7 +22,9 @@ const Search = () => {
       setResults(res.data.query.search);
     }
 
-    if(term) search();
+    setTimeout(() => {
+      if(term) search()
+    }, 500);
   },[term]);
 
 
@@ -45,7 +47,7 @@ const Search = () => {
     )
   });
 
-
+  // render on screen
   return(
     <div>
       <div className="ui form">
