@@ -49,6 +49,10 @@ const DropDown = ({ options, selected, onSelectedChange }) => {
           </div>
         </div>
       </div>
+      <p 
+        style={{ color:`${selected.value}` }} 
+        className="text"
+      > This Text is {selected.value} </p>
     </div>
   )
 }
