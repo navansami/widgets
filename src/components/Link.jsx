@@ -2,6 +2,9 @@ import React from 'react';
 
 const Link = ({ className, href, children }) => {
   const onClicked = (event) => {
+    if(event.metaKey || event.ctrlKey ) {
+      return;
+    }
     event.preventDefault();
     window.history.pushState({},'', href);
 
