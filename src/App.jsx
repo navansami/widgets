@@ -3,6 +3,7 @@ import Accordion from './components/Accordion';
 import Search from './components/Search';
 import DropDown from'./components/DropDown';
 import Translate from './components/Translate';
+import Header from './components/Header'
 import Route from './components/Route';
 
 const items = [
@@ -36,37 +37,11 @@ const options = [
 ];
 
 
-//Simple Routing
-const showAccordion = () => {
-  if(window.location.pathname === '/' ) {
-    return <Accordion items={items} />
-  }
-}
-
-const showList = () => {
-  if(window.location.pathname === '/list' ) {
-    return <Search />
-  }
-}
-
-const showDropDown = () => {
-  if(window.location.pathname === '/dropdown' ) {
-    return <DropDown />
-  }
-}
-
-const showTranslate = () => {
-  if(window.location.pathname === '/translate' ) {
-    return <Translate />
-  }
-}
-
-
-
 export default () => {
   const [ selected, setSelected ] = useState(options[0]);
   return (
     <div>
+      <Header />
       <Route path='/'> <Accordion items={items} /> </Route>
       <Route path='/list'> <Search /> </Route>
       <Route path='/dropdown'> <DropDown selected={selected} onSelectedChange={selected} options={options} /> </Route>
